@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ShootingMissilesEx",
+            "request": "launch",
+            "mainClass": "ShootingMissilesEx"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ShootingMissilesEx",
+            "request": "launch",
+            "mainClass": "ShootingMissilesEx",
+            "projectName": "SpriteSpaceShip_98e6a2d4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MovingSpriteEx",
+            "request": "launch",
+            "mainClass": "MovingSpriteEx",
+            "projectName": "SpriteSpaceShip_98e6a2d4"
+        }
+    ]
+}

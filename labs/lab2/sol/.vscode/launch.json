@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ThreadAnimationEx",
+            "request": "launch",
+            "mainClass": "ThreadAnimationEx"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SwingTimerEx",
+            "request": "launch",
+            "mainClass": "SwingTimerEx"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BounceViewer",
+            "request": "launch",
+            "mainClass": "BounceViewer"
+        }
+    ]
+}

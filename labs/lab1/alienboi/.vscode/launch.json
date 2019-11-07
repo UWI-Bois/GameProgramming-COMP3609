@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FaceViewer",
+            "request": "launch",
+            "mainClass": "FaceViewer"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EmptyFrame",
+            "request": "launch",
+            "mainClass": "EmptyFrame"
+        }
+    ]
+}

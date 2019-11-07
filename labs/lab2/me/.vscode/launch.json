@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SwingTimerEx",
+            "request": "launch",
+            "mainClass": "SwingTimerEx"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BallViewer",
+            "request": "launch",
+            "mainClass": "BallViewer"
+        }
+    ]
+}

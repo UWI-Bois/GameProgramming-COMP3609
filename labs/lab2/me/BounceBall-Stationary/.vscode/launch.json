@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BallViewer",
+            "request": "launch",
+            "mainClass": "BallViewer"
+        }
+    ]
+}
