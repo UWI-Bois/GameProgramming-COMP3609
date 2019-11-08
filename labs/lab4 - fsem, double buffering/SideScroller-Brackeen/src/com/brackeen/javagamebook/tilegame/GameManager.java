@@ -3,7 +3,6 @@ package com.brackeen.javagamebook.tilegame;
 import com.brackeen.javagamebook.graphics.ScreenManager;
 import com.brackeen.javagamebook.graphics.Sprite;
 import com.brackeen.javagamebook.graphics.input.InputManager;
-//import com.brackeen.javagamebook.input.*;
 import com.brackeen.javagamebook.sound.EchoFilter;
 import com.brackeen.javagamebook.sound.MidiPlayer;
 import com.brackeen.javagamebook.sound.Sound;
