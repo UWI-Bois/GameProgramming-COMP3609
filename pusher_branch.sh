@@ -1,3 +1,4 @@
+git pull
 git add .
 echo 'Enter commit message:'
 read commitMessage
