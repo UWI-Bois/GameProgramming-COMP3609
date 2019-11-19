@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPC_Movement : MonoBehaviour
 {
-    new Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidbody2D;
     Animator animator;
 
     public int direction = 1; // 1 = sumn, -1 = the opposite direction
@@ -18,8 +18,8 @@ public class NPC_Movement : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = movementTime;
         animator = GetComponent<Animator>();
-        //QualitySettings.vSyncCount = 0;
-        //Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
