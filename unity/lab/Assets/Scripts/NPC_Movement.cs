@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NPC_Movement : MonoBehaviour
 {
-    Rigidbody2D rigidbody2D;
+    new Rigidbody2D rigidbody2D;
     Animator animator;
+    new public ParticleSystem particleSystem;
 
     public int direction = 1; // 1 = sumn, -1 = the opposite direction
     public float speed = 1.5f;
@@ -20,6 +21,8 @@ public class NPC_Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+        particleSystem = GetComponent<ParticleSystem>();
+        particleSystem.Play();
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class NPC_Movement : MonoBehaviour
         Vector2 position = rigidbody2D.position;
         timer -= Time.deltaTime;
 
-        if(timer < 0)
+        if (timer < 0)
         {
             direction = -direction;
             timer = movementTime;

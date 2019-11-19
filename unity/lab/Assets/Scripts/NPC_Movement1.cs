@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC_Movement1 : MonoBehaviour
 {
     // Start is called before the first frame update
-    Rigidbody2D rigidbody2D;
+    new Rigidbody2D rigidbody2D;
     Animator animator;
 
     public int direction = 1; // 1 = sumn, -1 = the opposite direction

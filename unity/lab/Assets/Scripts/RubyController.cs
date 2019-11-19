@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
-    Rigidbody2D rigidbody2D;
+    new Rigidbody2D rigidbody2D;
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
     float speed = 4f;
