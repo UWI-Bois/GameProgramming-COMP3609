@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // access ui elements
 
 public class PlayerController : MonoBehaviour
 {
     public int jumpForce;
-    public int playerSpeed;
+    public int speed;
     public int yDead;
 
     public int health, maxHealth;
@@ -24,10 +25,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
     private Vector2 size;
+    private float timeLeft;
+
+    public GameObject timeLeftUI;
+    public GameObject playerScoreUI;
+    private int coinVal;
 
     // Start is called before the first frame update
     void Start()
     {
+        coinVal = 10;
+        timeLeft = 120;
         win = false;
         exp = 0;
         toNextLevel = 10;
@@ -37,9 +45,9 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
         facingRight = false;
         isGrounded = false;
-        jumpForce = 500;
+        jumpForce = 300;
         hasDied = false;
-        playerSpeed = 10;
+        speed = 10;
         yDead = -10;
         maxHealth = 4;
         health = maxHealth;
@@ -52,8 +60,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        PlayerMove(); // move the player
+        timeLeft -= Time.deltaTime;
+        Move(); // move the player
         CheckY(); // check to see if you fell off the map
+        PlayerRaycast();
+        updateGUI();
     }
 
     private void CheckY()
@@ -94,7 +105,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
     }
 
-    void PlayerMove()
+    void updateGUI()
+    {
+        timeLeftUI.gameObject.GetComponent<Text>().text = "Time: " + (int)timeLeft;
+        playerScoreUI.gameObject.GetComponent<Text>().text = "Score: " + score;
+    }
+
+    void Move()
     {
         // controls
         moveX = Input.GetAxis("Horizontal");
@@ -105,7 +122,7 @@ public class PlayerController : MonoBehaviour
         else if (moveX > 0.0f && facingRight) FlipPlayer();
         // physics
         rb.velocity = new Vector2(
-            moveX * playerSpeed,
+            moveX * speed,
             rb.velocity.y
         );
     }
@@ -127,7 +144,51 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // so using tilemaps, we can make new tilemaps and assign different tags to them, for ex: water and ground.
-        Debug.Log("player has collided with " + collision.collider.name + " with tag: " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "groundable") isGrounded = true;
+        //Debug.Log("player has collided with " + collision.collider.name + " with tag: " + collision.gameObject.tag);
+        //if (collision.gameObject.tag == "groundable") isGrounded = true;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "Goal") NextLevel();
+        if(collision.name == "Coin") EatCoin(collision);
+    }
+
+    private void EatCoin(Collider2D collision)
+    {
+        score += coinVal;
+        Destroy(collision.gameObject);
+    }
+
+    private void NextLevel()
+    {
+        CountScore();
+        // add exp, manage time
+    }
+
+    void CountScore()
+    {
+        score += (int)timeLeft * 10;
+        Debug.Log(score);
+    }
+
+    void PlayerRaycast()
+    {
+        // every time this ray touches an enemy, bounce off his head
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            Vector2.down // shoot a ray down
+        );
+
+        if (hit == null || hit.collider == null) return;
+
+        if (hit.distance < 0.9f && hit.collider.tag == "Enemy")
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+        }
+        if (hit.distance < 0.9f && hit.collider.tag != "Enemy")
+        {
+            isGrounded = true;
+        }
+    }
+
 }
