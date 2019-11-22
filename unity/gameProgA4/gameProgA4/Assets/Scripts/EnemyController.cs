@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
+
     public int speed;
     public int xMoveDir;
     private Rigidbody2D rb;
@@ -16,6 +17,26 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         speed = 2;
         xMoveDir = 1;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Move();
+        CheckY();
+    }
+
+    private void CheckY()
+    {
+        // this function will check the y value of the player, as well as the y velocity
+        // this is actual dogshit garbage and you should feel bad for using this
+        //if ((Vector3)rb.velocity == Vector3.zero) isGrounded = true; 
+        //else isGrounded = false;
+        int yDead = -7;
+        if (transform.position.y <= yDead)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Move()
@@ -47,8 +68,9 @@ public class EnemyController : MonoBehaviour
     {
         // so using tilemaps, we can make new tilemaps and assign different tags to them, for ex: water and ground.
         //Debug.Log("enemy has collided with " + collision.collider.name + " with tag: " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "groundable");
+        //if (collision.gameObject.tag == "groundable");
     }
+
 
     void Flip()
     {
@@ -56,9 +78,5 @@ public class EnemyController : MonoBehaviour
         else xMoveDir = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-    }
+    
 }

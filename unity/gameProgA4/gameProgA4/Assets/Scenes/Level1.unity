@@ -338,20 +338,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3062169936255385346}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &125926718
-MonoBehaviour:
+--- !u!95 &125926718
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125926717}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefd69110abf7724396fcc59c98da0b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeLeftUI: {fileID: 777409608}
-  playerScoreUI: {fileID: 1623853604}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3146cd0c545d07469ea3aaa0bbda7bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &216011117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,5 +2930,10 @@ PrefabInstance:
       propertyPath: playerScoreUI
       value: 
       objectReference: {fileID: 1623853604}
+    - target: {fileID: 3062169936246899266, guid: 58c13bef9d606f44b884323c9537fec6,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 125926718}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58c13bef9d606f44b884323c9537fec6, type: 3}
