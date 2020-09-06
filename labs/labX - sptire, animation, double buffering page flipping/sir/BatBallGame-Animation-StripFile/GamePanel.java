@@ -132,8 +132,14 @@ public class GamePanel extends JPanel implements
 			g.drawImage(stripImage,
 					0, 0, imageWidth, imageHeight,
 					i*imageWidth, 0, (i*imageWidth)+imageWidth, imageHeight,
-					null); //drawImage(Image img, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2, ImageObserver observer)
-						   //Draws as much of the specified area of the specified image as is currently available, scaling it on the fly to fit inside the specified area of the destination drawable surface.
+					null); 
+					/*drawImage(Image img, 
+					int dx1, int dy1, int dx2, int dy2, 
+					int sx1, int sy1, int sx2, int sy2, 
+					ImageObserver observer)
+					
+					*/
+					//Draws as much of the specified area of the specified image as is currently available, scaling it on the fly to fit inside the specified area of the destination drawable surface.
 
 			animation.addFrame(frameImage, 50);
 		}
